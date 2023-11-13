@@ -13,11 +13,19 @@ export class ToolbarComponent {
   ngOnInit() {}
 
   redirectToHome() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/']);
   }
 
   redirectToProducts() {
-    this.router.navigate(['/store/bundles']);
+    this.router.navigate(['/products']);
+  }
+
+  redirectToLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  redirectToRegister() {
+    this.router.navigate(['/register']);
   }
 
 }

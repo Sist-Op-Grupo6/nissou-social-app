@@ -1,0 +1,21 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<mat-card>
+    <h2>WELCOME TO NISSOUJOYAS</h2>
+    </mat-card>
+<mat-card>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="email">
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="login()">Iniciar Sesión</button>
+
+</mat-card>
