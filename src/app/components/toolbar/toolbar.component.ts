@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import { NissouService } from 'src/app/services/nissou.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -8,9 +9,25 @@ import {Router} from "@angular/router";
 })
 export class ToolbarComponent {
 
-  constructor(private router: Router) { }
+  hideHomeButton: boolean = false;
+  hideProductButton: boolean = false;
+  hideLoginButton: boolean = false;
+  hideRegisterButton: boolean = false;
+  hideLogoutButton: boolean = true;
+  hideAddPublicationButton: boolean = true;
 
-  ngOnInit() {}
+  constructor(private router: Router, private nissouService: NissouService ) { }
+
+  ngOnInit() {
+    this.nissouService.isLoggedIn$.subscribe(isLoggedIn => {
+      this.hideHomeButton = isLoggedIn;
+      this.hideProductButton = isLoggedIn;
+      this.hideLoginButton = !isLoggedIn;
+      this.hideRegisterButton = !isLoggedIn;
+      this.hideLogoutButton = isLoggedIn;
+      this.hideAddPublicationButton = isLoggedIn;
+    });
+  }
 
   redirectToHome() {
     this.router.navigate(['/']);
@@ -28,4 +45,18 @@ export class ToolbarComponent {
     this.router.navigate(['/register']);
   }
 
+  logout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['/login']).then(() => {
+      window.location.reload();
+    });
+  }
+
+  getUserName(): string | null {
+    return this.nissouService.getUserName();
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.nissouService.getUserName();
+  }
 }
