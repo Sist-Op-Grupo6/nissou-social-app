@@ -30,6 +30,8 @@ login() {
       console.log(res);
       //obtain the user entity and save in local storage
       localStorage.setItem('user', JSON.stringify(res));
+      //set logged in state to true
+      this.nissouService.setLoggedInState(true);
       //redirect to home
       this.router.navigate(['/']);
     },

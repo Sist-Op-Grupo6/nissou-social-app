@@ -39,6 +39,7 @@ export class RegisterComponent implements OnInit{
     this.nissouService.postUser(formData).subscribe(
       (res) => {
         console.log(res);
+        this.router.navigate(['/login']);
       },
       (err) => {
         console.log(err);
