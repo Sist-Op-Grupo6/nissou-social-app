@@ -1,8 +1,8 @@
 // home.component.ts
 
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../models/product';
-import { ProductService } from '../../services/product.service';
+import { Publication } from 'src/app/models/publication';
+import { PublicationService } from 'src/app/services/publication.service';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +10,14 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  products: Product[] = [];
+  publications: Publication[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(private publicationService: PublicationService) {}
 
   ngOnInit(): void {
     // Obtener la lista de productos al inicializar el componente
-    this.productService.getAllProducts().subscribe((products) => {
-      this.products = products;
+    this.publicationService.getAllPublications().subscribe((publications) => {
+      this.publications = publications;
     });
   }
 }

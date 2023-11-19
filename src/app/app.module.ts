@@ -20,6 +20,7 @@ import {FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { AddPublicationComponent } from './components/add-publication/add-publication.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HomeComponent } from './components/home/home.component';
     ToolbarComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AddPublicationComponent
   ],
   imports: [
     BrowserAnimationsModule,
