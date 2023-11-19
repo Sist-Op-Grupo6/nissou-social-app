@@ -33,4 +33,19 @@ export class PublicationService extends DataService<Publication> {
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  createPublication(userId: string, productId: string, publication: Publication): Observable<Publication> {
+    const url = `${this.basePath}`;
+
+    const requestBody = {
+      userId: userId,
+      productId: productId,
+      publication: publication
+    };
+
+    return this.http.post<Publication>(url, requestBody, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
 }

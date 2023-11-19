@@ -1,58 +1,95 @@
 import { Component } from '@angular/core';
 import { NissouService } from 'src/app/services/nissou.service';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
+import { ProductService } from 'src/app/services/product.service';
+import { PublicationService } from 'src/app/services/publication.service';
 
 @Component({
   selector: 'app-add-publication',
   templateUrl: './add-publication.component.html',
-  styleUrls: ['./add-publication.component.css']
+  styleUrls: ['./add-publication.component.css'],
 })
 export class AddPublicationComponent {
-  title: string = '';
-  description: string = '';
-  images: string[] = [];
-  price: number | undefined;
-  category: string = '';
-  condition: string = '';
+  pubTitle: string = '';
+  pubDescription: string = '';
 
-  constructor(private nissouService: NissouService, private router: Router) { }
+  productName: string = '';
+  productDescription: string = '';
+  productPrice: number | undefined;
+  productImage: string = '';
+  productWeight: number | undefined;
+  productMaterial: string = '';
+  productQuantity: number | undefined;
+
+  constructor(
+    private router: Router,
+    private publicationService: PublicationService,
+    private productService: ProductService
+  ) {}
 
   addPublication() {
-    const publicationData = {
-      title: this.title,
-      description: this.description,
-      images: this.images,
-      price: this.price,
-      category: this.category,
-      condition: this.condition
+    const productData = {
+      id: '',
+      name: this.productName,
+      description: this.productDescription,
+      price: this.productPrice,
+      image: this.productImage,
+      weight: this.productWeight,
+      material: this.productMaterial,
+      quantity: this.productQuantity,
     };
-/*
-    // Llama al servicio para enviar los datos al servidor
-    this.nissouService.addPublication(publicationData).subscribe(
-      (res) => {
-        console.log(res);
-        // Redirigir??
-        this.router.navigate(['/products']);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-*/
-    // Restablece los campos del formulario después de enviar la publicación
+
+
+    const userData = JSON.parse(localStorage.getItem('user') || '{}');
+
+    if (userData && userData.id) {
+      this.productService.createProduct(productData).subscribe(
+        (createdProduct) => {
+          console.log(createdProduct);
+          const createdProductId = this.productService.getCreatedProductId()!;
+          console.log(createdProductId);
+          console.log(userData);
+
+          const publicationData = {
+            id: '',
+            author: userData,
+            date: '',
+            product: createdProduct, 
+            title: this.pubTitle,
+            description: this.pubDescription,
+            likes: 0,
+          };
+  
+          // Lógica para crear la publicación con el producto
+          this.publicationService.createPublication(userData.id, createdProductId, publicationData).subscribe(
+            (res) => {
+              console.log(res);
+              this.router.navigate(['/home']);
+            },
+            (err) => {
+              console.log(err);
+            }
+          );
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    }
+
     this.resetForm();
   }
 
   resetForm() {
-    this.title = '';
-    this.description = '';
-    this.images = [];
-    this.price = undefined;
-    this.category = '';
-    this.condition = '';
-  }
+    this.pubTitle = '';
+    this.pubDescription = '';
 
-  handleImageUpload(event: any) {
-    // Lógica para manejar la carga de imágenes
+    this.productName = '';
+    this.productDescription = '';
+    this.productPrice = undefined;
+    this.productImage = '';
+    this.productWeight = undefined;
+    this.productMaterial = '';
+    this.productQuantity = undefined;
   }
 }
