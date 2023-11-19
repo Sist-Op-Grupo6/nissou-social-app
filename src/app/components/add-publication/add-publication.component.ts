@@ -3,6 +3,7 @@ import { NissouService } from 'src/app/services/nissou.service';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import { PublicationService } from 'src/app/services/publication.service';
+import { Publication } from 'src/app/models/publication';
 
 @Component({
   selector: 'app-add-publication',
@@ -39,6 +40,9 @@ export class AddPublicationComponent {
       quantity: this.productQuantity,
     };
 
+    const auxTitle = this.pubTitle;
+    const auxDescription = this.pubDescription;
+
 
     const userData = JSON.parse(localStorage.getItem('user') || '{}');
 
@@ -46,22 +50,23 @@ export class AddPublicationComponent {
       this.productService.createProduct(productData).subscribe(
         (createdProduct) => {
           console.log(createdProduct);
-          const createdProductId = this.productService.getCreatedProductId()!;
-          console.log(createdProductId);
           console.log(userData);
+          console.log("++++++++++++++++++++++++++++++++++++++++++++");
+          console.log(auxTitle);
+          console.log(auxDescription);
 
-          const publicationData = {
-            id: '',
-            author: userData,
-            date: '',
-            product: createdProduct, 
-            title: this.pubTitle,
-            description: this.pubDescription,
+          const publicationData: Publication = {
+            id: 'string',
+            date: '2022',
+            title: auxTitle,
+            description: auxDescription,
             likes: 0,
           };
-  
+          
+          console.log(publicationData);
+
           // Lógica para crear la publicación con el producto
-          this.publicationService.createPublication(userData.id, createdProductId, publicationData).subscribe(
+          this.publicationService.createPublication(userData.id, createdProduct.id, publicationData).subscribe(
             (res) => {
               console.log(res);
               this.router.navigate(['/home']);
