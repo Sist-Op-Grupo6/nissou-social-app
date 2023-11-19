@@ -33,7 +33,7 @@ login() {
       //set logged in state to true
       this.nissouService.setLoggedInState(true);
       //redirect to home
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     },
     (err) => {
       console.log(err);

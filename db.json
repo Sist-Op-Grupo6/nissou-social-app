@@ -1,3 +1,19 @@
 {
-
+  "products": [
+    {
+      "name": "Diamond Ring",
+      "description": "Elevate your style with this incredible diamond ring. This elegant ring is meticulously crafted with an exquisite combination of sparkling diamonds and 18K white gold. Each diamond is carefully set to create a dazzling brilliance that captures the light stunningly. This ring is more than just jewelry; it's a statement of elegance and sophistication. Whether you're looking for the perfect complement for a special occasion or simply want to add a touch of luxury to your everyday life, this diamond ring is the ideal choice. Make a style statement with this ring that is sure to turn heads wherever you go.",
+      "price": 500,
+      "image": "https://www.khwaahish.com/wp-content/uploads/2022/07/CATEGORY_RING_IMAGE_Header.jpg",
+      "weight": 5,
+      "material": "18K White Gold"
+    },
+    {
+      "name": "Diamond Ring",
+      "description": "Elevate your style with this incredible diamond ring. This elegant ring is meticulously crafted with an exquisite combination of sparkling diamonds and 18K white gold. Each diamond is carefully set to create a dazzling brilliance that captures the light stunningly. This ring is more than just jewelry; it's a statement of elegance and sophistication. Whether you're looking for the perfect complement for a special occasion or simply want to add a touch of luxury to your everyday life, this diamond ring is the ideal choice. Make a style statement with this ring that is sure to turn heads wherever you go.",
+      "price": 500,
+      "image": "https://www.khwaahish.com/wp-content/uploads/2022/07/CATEGORY_RING_IMAGE_Header.jpg",
+      "weight": 5,
+      "material": "18K White Gold"
+    }
 }
