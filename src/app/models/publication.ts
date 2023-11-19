@@ -3,9 +3,9 @@ import { user } from "./user";
 
 export interface Publication {
     id: any;
-    author: user;
+    author?: user | null;
     date: any;
-    product: Product;
+    product?: Product | null;
     title: any;
     description: any;
     likes: any;

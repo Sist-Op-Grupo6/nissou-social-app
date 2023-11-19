@@ -3,7 +3,7 @@ import {catchError, Observable, retry, throwError} from "rxjs";
 
 export class DataService<T> {
   // Resource Endpoint
-  basePath = 'http://localhost:3000';
+  basePath = 'http://localhost:8000';
 
   httpOptions = {
     headers: new HttpHeaders({
