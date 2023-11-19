@@ -30,7 +30,7 @@ export class ToolbarComponent {
   }
 
   redirectToHome() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
 
   redirectToProducts() {

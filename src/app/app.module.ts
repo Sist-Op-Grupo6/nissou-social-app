@@ -19,13 +19,17 @@ import {MatRadioModule} from '@angular/material/radio';
 import {FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
+import { AddPublicationComponent } from './components/add-publication/add-publication.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    AddPublicationComponent
   ],
   imports: [
     BrowserAnimationsModule,
