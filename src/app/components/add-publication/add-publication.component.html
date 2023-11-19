@@ -1,0 +1,49 @@
+<div class="add-publication-container">
+    <h2>Crea tu publicación</h2>
+    <form (submit)="addPublication()">
+      <label for="title">Título:</label>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Write here:</mat-label>
+        <input matInput [(ngModel)]="title" required>
+      </mat-form-field>
+
+      <label for="description">Descripción:</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Write here:</mat-label>
+        <textarea matInput [(ngModel)]="description" required></textarea>
+      </mat-form-field>
+  
+      <label for="price">Fotos referenciales:</label>
+      <input type="file" (change)="handleImageUpload($event)" accept="image/*" multiple>
+      <div style="margin-bottom: 30px;"></div>
+
+      <label for="price">Precio:</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Price in Soles</mat-label>
+        <span matPrefix>S/.</span>
+        <input matInput type="number" [(ngModel)]="price" required>
+      </mat-form-field>
+  
+      <label for="category">Categoría:</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Write here:</mat-label>
+        <input matInput type="text" [(ngModel)]="category" required>
+      </mat-form-field>
+  
+      <label for="condition">Condición:</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose your option:</mat-label>
+        <mat-select [(ngModel)]="condition" required>
+          <mat-option value="Nuevo">Nuevo</mat-option>
+          <mat-option value="Semi-nuevo">Semi-nuevo</mat-option>
+          <mat-option value="Usado">Usado</mat-option>
+          <mat-option value="Para reparar">Para reparar</mat-option>
+          <mat-option value="Otro">Otro...</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button type="submit" mat-fab color="primary">Post</button>
+    </form>
+  </div>
+  
