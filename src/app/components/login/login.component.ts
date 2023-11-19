@@ -32,10 +32,12 @@ login() {
       localStorage.setItem('user', JSON.stringify(res));
       //set logged in state to true
       this.nissouService.setLoggedInState(true);
+      alert('User logged in successfully');
       //redirect to home
       this.router.navigate(['/home']);
     },
     (err) => {
+      alert('User not found');
       console.log(err);
     }
   );
