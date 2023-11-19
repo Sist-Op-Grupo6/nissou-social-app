@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit{
 
   register() {
     const formData = {
+      id : '',
       first_name: this.user.firstName,
       last_name: this.user.lastName,
       email: this.user.email,
@@ -35,10 +36,10 @@ export class RegisterComponent implements OnInit{
       gender: this.user.gender
     };
   
-    // Utiliza formData en lugar de this.user al enviar los datos al servicio
     this.nissouService.postUser(formData).subscribe(
       (res) => {
         console.log(res);
+        alert('User registered successfully');
         this.router.navigate(['/login']);
       },
       (err) => {
