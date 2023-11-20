@@ -1,0 +1,71 @@
+<div class="edit-publication-container mx-auto p-8 bg-gray-100 rounded-md">
+    <h2 class="text-3xl font-bold mb-4">Edita tu publicación</h2>
+    <form (submit)="updatePublication()" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Datos de la publicación -->
+      <div>
+        <label for="pubTitle" class="block text-sm font-semibold mb-2">Nuevo Título:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Write here:</mat-label>
+          <input matInput [(ngModel)]="pubTitle" name="pubTitle" >
+        </mat-form-field>
+  
+        <label for="pubDescription" class="block text-sm font-semibold mt-4 mb-2">Nueva Descripción:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Write here:</mat-label>
+          <textarea matInput [(ngModel)]="pubDescription" name="pubDescription" ></textarea>
+        </mat-form-field>
+      </div>
+  
+      <!-- Datos del producto -->
+    <div>
+      <h2 class="mb-4">Ingrese datos del producto:</h2>
+
+      <label for="productName" class="block text-sm font-semibold mb-2">Nuevo nombre del producto:</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Write here:</mat-label>
+        <input matInput [(ngModel)]="productName" name="productName" >
+      </mat-form-field>
+
+      <label for="productDescription" class="block text-sm font-semibold mt-4 mb-2">Nueva descripción del producto:</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Write here:</mat-label>
+        <textarea matInput [(ngModel)]="productDescription" name="productDescription" ></textarea>
+      </mat-form-field>
+
+      <label for="productPrice" class="block text-sm font-semibold mb-2">Nuevo precio del producto:</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Price in Dollars</mat-label>
+        <span matPrefix>USD</span>
+        <input matInput type="number" [(ngModel)]="productPrice" name="productPrice" >
+      </mat-form-field>
+
+      <label for="productImage" class="block text-sm font-semibold mb-2">URL de imágenes referenciales del producto:</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Write here:</mat-label>
+        <input matInput type="text" [(ngModel)]="productImage" name="productImage" class="mb-4" >
+      </mat-form-field>
+
+      <label for="productWeight" class="block text-sm font-semibold mb-2">Nuevo peso del producto:</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Weight</mat-label>
+        <span matSuffix>gr</span>
+        <input matInput type="number" [(ngModel)]="productWeight" name="productWeight" >
+      </mat-form-field>
+
+      <label for="productMaterial" class="block text-sm font-semibold mt-4 mb-2">Material del producto:</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Write here:</mat-label>
+        <input matInput type="text" [(ngModel)]="productMaterial" name="productMaterial" >
+      </mat-form-field>
+
+      <label for="productQuantity" class="block text-sm font-semibold mt-4 mb-2">Nueva cantidad disponible:</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Quantity</mat-label>
+        <input matInput type="number" [(ngModel)]="productQuantity" name="productQuantity" >
+      </mat-form-field>
+
+      <button type="submit" mat-fab color="primary" class="mt-4">Post</button>
+    </div>
+    </form>
+  </div>
+  
