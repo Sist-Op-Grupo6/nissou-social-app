@@ -21,6 +21,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { AddPublicationComponent } from './components/add-publication/add-publication.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AddPublicationComponent } from './components/add-publication/add-public
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    AddPublicationComponent
+    AddPublicationComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserAnimationsModule,

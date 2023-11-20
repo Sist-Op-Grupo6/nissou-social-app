@@ -1,0 +1,39 @@
+<div class="publication-details-container p-4 text-lg">
+  <div class="author-info">By {{ publication.author.first_name }} {{ publication.author.last_name }}</div>
+  <h2 class="publication-title">{{ publication.title }}</h2>
+  <p class="publication-description">{{ publication.description}}</p>
+
+  <div class="product-image-container w-80 h-auto border border-gray-500">
+    <img class="product-image" [src]="publication.product?.image" alt="{{ publication.product?.name }}" />
+  </div>
+
+  <div class="product-info p-4">
+    <h3 class="product-name">{{ publication.product.name }}</h3>
+    <p class="product-description">{{ publication.product.description }}</p>
+    <p class="product-price font-bold text-green-600">
+      Price: {{ publication.product?.price | currency : "USD" : true }}
+    </p>
+    <p class="product-meta text-gray-600">
+      Weight: {{ publication.product.weight }}g | Material: {{ publication.product.material }} | Quantity: {{ publication.product.quantity }}
+    </p>
+  </div>
+
+  <div class="likes-container" style="display: flex; align-items: center; margin-top: 10px;">
+    <p class="likes-info">Likes: {{ publication.likes}}</p>
+    <mat-icon class="like-icon" style="color: #4CAF50; margin-left: 8px;">thumb_up</mat-icon>
+  </div>
+
+  <div class="add-comment-container mx-auto p-8 bg-light-gray rounded-md">
+    <form (submit)="addedComment()" class="comment-form grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm font-semibold mb-2">Add Comment:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Write your comment here:</mat-label>
+          <input matInput [(ngModel)]="textt" name="commentText" required>
+        </mat-form-field>
+      </div>
+
+      <button mat-button class="comment-button" style="background-color: #2196F3; color: white">Comment</button>
+    </form>
+  </div>
+</div>
