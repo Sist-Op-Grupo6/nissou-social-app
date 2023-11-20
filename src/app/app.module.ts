@@ -22,6 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { AddPublicationComponent } from './components/add-publication/add-publication.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { EditPublicationComponent } from './components/edit-publication/edit-publication.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { CommentsComponent } from './components/comments/comments.component';
     LoginComponent,
     HomeComponent,
     AddPublicationComponent,
-    CommentsComponent
+    CommentsComponent,
+    EditPublicationComponent
+
   ],
   imports: [
     BrowserAnimationsModule,
