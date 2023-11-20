@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CommentService} from "../../services/comment.service";
 import {Comment} from "../../models/comment";
+import { CommaExpr } from '@angular/compiler';
 
 @Component({
   selector: 'app-comments',
@@ -9,14 +10,13 @@ import {Comment} from "../../models/comment";
 })
 export class CommentsComponent implements OnInit{
   publication: any;
-  comments: any;
+  comments: Comment[] = [];
 
   publicationId: string = '';
   datee: string = '';
   textt: string = '';
 
   constructor(private commentService: CommentService) {
-
   }
 
   ngOnInit(): void {
@@ -32,6 +32,10 @@ export class CommentsComponent implements OnInit{
     const anio = fechaActual.getFullYear();
 
     this.datee = `${dia}-${mes}-${anio}`;
+    
+    this.commentService.getCommentsByPublicationId(this.publicationId).subscribe((comments) => {
+      this.comments = comments;
+    });
   }
 
   addedComment():void{
