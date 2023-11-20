@@ -4,7 +4,7 @@
     *ngFor="let publication of publications"
   >
     <div
-      class="rounded overflow-hidden shadow-md transition-transform transform hover:scale-105"
+      class="rounded overflow-hidden shadow-md transition-transform transform hover:scale-105" (click)="OpenPublicationsComments(publication)"
     >
       <div class="w-full h-40">
         <img
