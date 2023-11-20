@@ -25,5 +25,9 @@ export class HomeComponent implements OnInit {
   OpenPublicationsComments(data: any): void {
     this.router.navigate(['/publication/comments'], { state: { publication: data } });
   }
+  
+  editPublication(publication: Publication) {
+    this.router.navigate(['/edit-publication', publication.id]);
+  }
 }
 
