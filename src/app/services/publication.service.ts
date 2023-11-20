@@ -42,4 +42,13 @@ export class PublicationService extends DataService<Publication> {
         catchError(this.handleError)
       );
   }
+    updatePublication(id: string, newTitle: string, newDescription: string): Observable<Publication> {
+  const updateData = { title: newTitle, description: newDescription };
+
+  return this.http.put<Publication>(`${this.basePath}/publications/${id}`, updateData, this.httpOptions)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
+}
 }
