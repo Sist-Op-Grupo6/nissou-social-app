@@ -1,22 +1,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<body style="background-image: url('https://www.10wallpaper.com/wallpaper/5120x3200/2102/Jewel_Dark_2021_Jewelry_5K_HD_Photo_5120x3200.jpg'); background-size: cover; background-repeat: no-repeat;">
 <mat-card class = "custom-card">
-<h2>WELCOME TO NISSOUJOYAS</h2>
+<h2>Editar Usuario</h2>
 </mat-card>
 <mat-card>
   <mat-form-field>
     <mat-label>First Name</mat-label>
-    <input matInput [(ngModel)]="user.firstName" required>
+    <input matInput [(ngModel)]="user.firstName">
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Last Name</mat-label>
-    <input matInput [(ngModel)]="user.lastName" required>
+    <input matInput [(ngModel)]="user.lastName">
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Age</mat-label>
-    <input matInput [(ngModel)]="user.age" required>
+    <input matInput [(ngModel)]="user.age">
   </mat-form-field>
 
   <mat-form-field>
@@ -28,19 +27,13 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Email</mat-label>
-    <input matInput [(ngModel)]="user.email" required email>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" required>
+    <mat-label>Confirm with your actually password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password">
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" (click)="register()">Registrarse</button>
+  <button mat-raised-button color="primary" (click)="updateAccount()">Confirmar</button>
 
 </mat-card>
-</body>
