@@ -16,12 +16,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { AddPublicationComponent } from './components/add-publication/add-publication.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { AccountEditComponent } from './components/account-edit/account-edit.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { CommentsComponent } from './components/comments/comments.component';
     LoginComponent,
     HomeComponent,
     AddPublicationComponent,
-    CommentsComponent
+    CommentsComponent,
+    AccountEditComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -47,7 +50,8 @@ import { CommentsComponent } from './components/comments/comments.component';
     MatRadioModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

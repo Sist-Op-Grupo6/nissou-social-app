@@ -19,6 +19,7 @@ export class ToolbarComponent {
   constructor(private router: Router, private nissouService: NissouService ) { }
 
   ngOnInit() {
+    localStorage.removeItem('user');
     this.nissouService.isLoggedIn$.subscribe(isLoggedIn => {
       this.hideHomeButton = isLoggedIn;
       this.hideProductButton = isLoggedIn;
@@ -43,6 +44,10 @@ export class ToolbarComponent {
 
   redirectToRegister() {
     this.router.navigate(['/register']);
+  }
+
+  redirectToAccountEdit() {
+    this.router.navigate(['/account-edit']);
   }
   
   redirectToAddPublication() {

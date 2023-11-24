@@ -5,12 +5,12 @@
   <mat-card>
       <mat-form-field>
           <mat-label>Email</mat-label>
-          <input matInput [(ngModel)]="email">
+          <input matInput [(ngModel)]="email" required>
         </mat-form-field>
       
         <mat-form-field>
           <mat-label>Password</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+          <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password" required>
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
