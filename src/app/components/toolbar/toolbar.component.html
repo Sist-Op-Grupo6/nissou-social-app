@@ -1,9 +1,11 @@
   <mat-toolbar class="toolbar">
   <span class="text">NISSOUJOYAS</span>
+  <button (click)="redirectToAccountEdit()">
   <span class="userName" *ngIf="isLoggedIn()">
     <mat-icon>account_circle</mat-icon>
     <span class="text">{{ getUserName() }}</span>
   </span>
+</button>
   <span class="example-spacer"></span>
   <button *ngIf="hideHomeButton" (click)="redirectToHome()" mat-fab extended color="dark">
       <mat-icon >home</mat-icon>

@@ -33,4 +33,9 @@ export class NissouService {
     return null;
   }
 
+  updateUser(user: any) {
+    return this.http.put(environment.baseURL + '/users/' + user.id + '/' , user);
+  }
+
+  
 }
