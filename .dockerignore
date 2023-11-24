@@ -1,0 +1,5 @@
+.git
+.firebase
+.gitignore
+.editorconfig
+/node_modules
