@@ -1,0 +1,66 @@
+<div class="card max-w-2xl mx-auto p-6 bg-white rounded-md shadow-lg">
+  <div class="flex flex-col md:flex-row md:space-x-8">
+    <!-- Columna izquierda con la imagen del producto -->
+    <div class="w-full md:w-1/2">
+      <div class="product-image-container border border-gray-500">
+        <img
+          class="product-image w-full h-auto"
+          [src]="publication.product?.image"
+          alt="{{ publication.product?.name }}"
+        />
+      </div>
+    </div>
+
+    <!-- Columna derecha con la información de la publicación -->
+    <div class="w-full md:w-1/2">
+      <div class="author-info mb-4">
+        By {{ publication.author.first_name }} {{ publication.author.last_name }}
+      </div>
+      <h2 class="publication-title text-2xl font-bold mb-4">{{ publication.title }}</h2>
+      <div class="product-info">
+        <h3 class="product-name text-xl font-bold mb-2">{{ publication.product.name }}</h3>
+        <p class="product-description mb-2">{{ publication.product.description }}</p>
+        <p class="product-price font-bold text-green-600 mb-2">
+          Price: {{ publication.product?.price | currency : "USD" : true }}
+        </p>
+        <p class="product-meta text-gray-600 mb-2">
+          Weight: {{ publication.product.weight }}g | Material:
+          {{ publication.product.material }} | Quantity:
+          {{ publication.product.quantity }}
+        </p>
+      </div>
+
+      <div class="likes-container flex items-center mt-4">
+        <p class="likes-info">Likes: {{ publication.likes }}</p>
+        <mat-icon class="like-icon ml-2" style="color: #4caf50">thumb_up</mat-icon>
+      </div>
+
+      <!-- Formulario de comentarios -->
+      <div class="add-comment-container mt-8">
+        <form (submit)="addedComment()" class="comment-form grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-semibold mb-2">Add Comment:</label>
+            <mat-form-field appearance="fill">
+              <mat-label>Write your comment here:</mat-label>
+              <input matInput [(ngModel)]="textt" name="commentText" required />
+            </mat-form-field>
+          </div>
+      
+          <button mat-icon-button class="comment-button" style="background-color: #2196f3; color: white">
+            <mat-icon>send</mat-icon>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Comentarios al final de la publicación -->
+<div class="comments-container mt-8">
+  <div class="card max-w-2xl mx-auto p-4 bg-white rounded-md shadow-lg" *ngFor="let comment of comments">
+    <div class="comment-author">
+      {{ comment.author?.firstName }} {{ comment.author?.lastName }}
+    </div>
+    <div class="comment-text">{{ comment.text }}</div>
+  </div>
+</div>

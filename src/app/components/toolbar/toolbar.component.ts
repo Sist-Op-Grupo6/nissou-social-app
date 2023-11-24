@@ -30,7 +30,7 @@ export class ToolbarComponent {
   }
 
   redirectToHome() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
 
   redirectToProducts() {
@@ -44,7 +44,11 @@ export class ToolbarComponent {
   redirectToRegister() {
     this.router.navigate(['/register']);
   }
-
+  
+  redirectToAddPublication() {
+    this.router.navigate(['/add-publication']);
+  }
+  
   logout() {
     localStorage.removeItem('user');
     this.router.navigate(['/login']).then(() => {

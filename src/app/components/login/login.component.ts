@@ -34,7 +34,7 @@ login() {
       this.nissouService.setLoggedInState(true);
       alert('User logged in successfully');
       //redirect to home
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     },
     (err) => {
       alert('User not found');

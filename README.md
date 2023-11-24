@@ -18,6 +18,12 @@ Para correr la app, recordar que la terminal se debe encontrar en la carpeta rai
 ng serve
 ```
 
+En caso de que no reconozca las importaciones en app.modules, ejecutar:
+    
+``` bash
+npm install --save @angular/material @angular/cdk @angular/animations
+```
+
 Para crear un nuevo componente:
 
 ``` bash
